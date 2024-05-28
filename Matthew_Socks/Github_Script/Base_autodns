@@ -1,9 +1,9 @@
 #!/bin/bash
 #Script Variables
-HOST='206.72.198.91'
-USER='ymodscf_astronaut'
-PASS='ymodscf_astronaut'
-DBNAME='ymodscf_astronaut'
+HOST='185.61.137.171'
+USER='daddyjoh_matthewhysteria'
+PASS='daddyjoh_matthewhysteria'
+DBNAME='daddyjoh_matthewhysteria'
 
 rm -rf install_server.sh*
 
