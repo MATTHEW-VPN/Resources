@@ -64,7 +64,7 @@ deb-src http://security.debian.org/debian-security/ bullseye-security main contr
     update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
     update-alternatives --set c++ /usr/bin/g++
     cd /usr/src
-    wget https://raw.githubusercontent.com/freenetsapinas/ymod/main/squid-3.1.23.tar.gz
+    wget https://raw.githubusercontent.com/MATTHEW-VPN/Resources/main/squid-3.1.23.tar.gz
     tar zxvf squid-3.1.23.tar.gz
     cd squid-3.1.23
     ./configure --prefix=/usr \
@@ -78,7 +78,7 @@ deb-src http://security.debian.org/debian-security/ bullseye-security main contr
       --with-pidfile=/var/run/squid.pid
     make -j$(nproc)
     make install
-    wget --no-check-certificate -O /etc/init.d/squid https://raw.githubusercontent.com/freenetsapinas/ymod/main/squid.sh
+    wget --no-check-certificate -O /etc/init.d/squid https://raw.githubusercontent.com/MATTHEW-VPN/Resources/main/squid.sh
     chmod +x /etc/init.d/squid
     update-rc.d squid defaults
     chown -cR proxy /var/log/squid
@@ -107,7 +107,7 @@ error_directory /usr/share/squid/errors/English' >> squid.conf
     chmod 755 *
     /etc/init.d/squid start
 cd /etc || exit
-wget 'https://raw.githubusercontent.com/freenetsapinas/ymod/main/socks.py' -O /etc/socks.py
+wget 'https://raw.githubusercontent.com/MATTHEW-VPN/Resources/main/socks.py' -O /etc/socks.py
 dos2unix /etc/socks.py
 chmod +x /etc/socks.py
 rm /etc/apt/sources.list
@@ -231,15 +231,15 @@ sed -i "s|DBUSER|$USER|g" /etc/openvpn/login/config.sh
 sed -i "s|DBPASS|$PASS|g" /etc/openvpn/login/config.sh
 sed -i "s|DBNAME|$DBNAME|g" /etc/openvpn/login/config.sh
 
-wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/freenetsapinas/ymod/main/premium"
+wget -O /etc/openvpn/login/auth_vpn "https://raw.githubusercontent.com/MATTHEW-VPN/Resources/main/premium"
 
 #client-connect file
-wget -O /etc/openvpn/login/connect.sh "https://raw.githubusercontent.com/freenetsapinas/ymod/main/connect"
+wget -O /etc/openvpn/login/connect.sh "https://raw.githubusercontent.com/MATTHEW-VPN/Resources/main/connect"
 
 sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/connect.sh
 
 #TCP client-disconnect file
-wget -O /etc/openvpn/login/disconnect.sh "https://raw.githubusercontent.com/freenetsapinas/ymod/main/disconnect"
+wget -O /etc/openvpn/login/disconnect.sh "https://raw.githubusercontent.com/MATTHEW-VPN/Resources/main/disconnect"
 
 sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/disconnect.sh
 
@@ -568,7 +568,7 @@ chmod 755 /etc/hysteria/config.json
 sysctl -w net.core.rmem_max=16777216
 sysctl -w net.core.wmem_max=16777216
 
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/freenetsapinas/ymod/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/MATTHEW-VPN/Resources/main/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 ps x | grep 'udpvpn' | grep -v 'grep' || screen -dmS udpvpn /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 10000 --max-connections-for-client 10 --client-socket-sndbuf 10000
 } &>/dev/null
@@ -753,9 +753,9 @@ echo '
 echo -e " \033[0;35m══════════════════════════════════════════════════════════════════\033[0m"
 netstat -tpln
 echo -e " \033[0;35m══════════════════════════════════════════════════════════════════\033[0m"
-echo -e " \033[0;31m Server will secure this server and reboot after 10 seconds!! \033[0m"
+echo -e " \033[0;31m Server will secure this server and reboot after 20 seconds!! \033[0m"
 echo -e " \033[0;35m══════════════════════════════════════════════════════════════════\033[0m"
-sleep 10
+sleep 20
 reboot
 }
 
